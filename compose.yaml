@@ -12,19 +12,21 @@ services:
     image: timescale/pgai-vectorizer-worker:latest
     environment:
       PGAI_VECTORIZER_WORKER_DB_URL: postgres://postgres:postgres@db:5432/postgres
-      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_HOST: http://ollama:7869
     command: [ "--poll-interval", "5s" ]
   ollama:
     image: docker.io/ollama/ollama:latest
     ports:
-      - 7869:11434
+      - "7869:11434"
     volumes:
       - .:/code
       - ./ollama/ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
     container_name: ollama
     pull_policy: always
     tty: true
     restart: always
+    entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
     environment:
       - OLLAMA_KEEP_ALIVE=24h
       - OLLAMA_HOST=0.0.0.0
@@ -38,7 +40,7 @@ services:
     depends_on:
       - ollama
     ports:
-      - 8080:8080
+      - "8080:8080"
     environment: # https://docs.openwebui.com/getting-started/env-configuration#default_models
       - OLLAMA_BASE_URLS=http://host.docker.internal:7869 #comma separated ollama hosts
       - ENV=dev
