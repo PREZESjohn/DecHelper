@@ -6,6 +6,8 @@ services:
       POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
+    networks:
+      - ollama-docker
     volumes:
       - data:/home/postgres/pgdata/data
   vectorizer-worker:
@@ -48,6 +50,9 @@ services:
       - WEBUI_NAME=dechelper AI
       - WEBUI_URL=http://localhost:8080
       - WEBUI_SECRET_KEY=t0p-s3cr3t
+# environments for setting custom db for open webui
+#      - DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+#      - VECTOR_DB=pgvector
     extra_hosts:
       - host.docker.internal:host-gateway
     restart: unless-stopped
