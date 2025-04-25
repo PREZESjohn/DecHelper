@@ -1,7 +1,8 @@
-package com.project.dechelper.service;
+package com.project.dechelper.services;
 
 import com.project.dechelper.model.Information;
-import com.project.dechelper.repository.InformationRepository;
+import com.project.dechelper.repositories.InformationRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

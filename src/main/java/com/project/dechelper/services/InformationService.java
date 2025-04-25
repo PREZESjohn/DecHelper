@@ -1,8 +1,9 @@
-package com.project.dechelper.service;
+package com.project.dechelper.services;
 
 import com.project.dechelper.model.Information;
 
 import java.util.List;
+
 
 public interface InformationService {
 
