@@ -1,0 +1,60 @@
+package com.project.dechelper.bootData;
+
+import com.project.dechelper.model.Information;
+import com.project.dechelper.repositories.InformationRepository;
+import lombok.Builder;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+@Component
+@Builder
+public class DataLoader implements ApplicationRunner {
+
+    private InformationRepository informationRepository;
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        informationRepository.saveAll(createInformations());
+    }
+
+    private List<Information> createInformations() {
+        Information inf1 = Information.builder()
+                .subject("Cousin Martin")
+                .type("Family")
+                .content("On 01.02.2023, he borrowed me 123$")
+                .build();
+        Information inf2 = Information.builder()
+                .subject("Aunt Margaret")
+                .type("Family")
+                .content("She cannot accept change in government")
+                .build();
+        Information inf3 = Information.builder()
+                .subject("Louis Cabbage")
+                .type("Work")
+                .content("Probably, he tell boss that im not good enough")
+                .build();
+        Information inf4 = Information.builder()
+                .subject("Bethany Kapusta")
+                .type("Friends")
+                .content("She likes when somebody gives her flowers")
+                .build();
+        Information inf5 = Information.builder()
+                .subject("Pablo Eskamoso")
+                .type("Work")
+                .content("He steals paper sheets from work")
+                .build();
+        Information inf6 = Information.builder()
+                .subject("Project Master John")
+                .type("Work")
+                .content("He is fine with my work, but I can do better")
+                .build();
+        return Arrays.asList(inf1, inf2, inf3, inf4, inf5, inf6);
+    }
+
+}
