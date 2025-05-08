@@ -6,6 +6,7 @@ import lombok.Builder;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationListener;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.List;
 
 @Component
 @Builder
+@Order(1)
 public class DataLoader implements ApplicationRunner {
 
     private InformationRepository informationRepository;
