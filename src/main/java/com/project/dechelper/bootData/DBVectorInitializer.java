@@ -25,7 +25,7 @@ public class DBVectorInitializer implements ApplicationRunner {
             System.out.println("Extensions enabled");
         }
         String createVectorizeSQl = "SELECT ai.create_vectorizer(\n" +
-                "   'public.information'::regclass,\n" +
+                "   'information'::regclass,\n" +
                 "   destination => 'informations_embeddings',\n" +
                 "   embedding => ai.embedding_ollama('nomic-embed-text', 768),\n" +
                 "   chunking => ai.chunking_recursive_character_text_splitter('content')\n" +
