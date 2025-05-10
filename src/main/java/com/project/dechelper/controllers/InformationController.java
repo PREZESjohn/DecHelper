@@ -33,6 +33,11 @@ public class InformationController {
     @PutMapping("/add")
     @Operation(summary = "Save information")
     public ResponseEntity<Information> saveInformation(@RequestBody Information information) {
+        Information infoComb = Information.builder()
+                .subject(information.getSubject())
+                .type(information.getType())
+                .content(information.getType()+" | "+information.getSubject()+" | "+information.getContent())
+                .build();
         return ResponseEntity.ok(informationService.saveInfo(information));
     }
 

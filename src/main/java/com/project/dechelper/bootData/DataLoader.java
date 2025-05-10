@@ -29,32 +29,32 @@ public class DataLoader implements ApplicationRunner {
         Information inf1 = Information.builder()
                 .subject("Cousin Martin")
                 .type("Family")
-                .content("On 01.02.2023, he borrowed me 123$")
+                .content("Family"+" | "+"Cousin Martin"+" | "+"On 01.02.2023, he borrowed me 123$")
                 .build();
         Information inf2 = Information.builder()
                 .subject("Aunt Margaret")
                 .type("Family")
-                .content("She cannot accept change in government")
+                .content("Family"+" | "+"Aunt Margaret"+" | "+"She cannot accept change in government")
                 .build();
         Information inf3 = Information.builder()
                 .subject("Louis Cabbage")
                 .type("Work")
-                .content("Probably, he tell boss that im not good enough")
+                .content("Work"+" | "+"Louis Cabbage"+" | "+"Probably, he tell boss that im not good enough")
                 .build();
         Information inf4 = Information.builder()
                 .subject("Bethany Kapusta")
                 .type("Friends")
-                .content("She likes when somebody gives her flowers")
+                .content("Friends"+" | "+"Bethany Kapusta"+" | "+"She likes when somebody gives her flowers")
                 .build();
         Information inf5 = Information.builder()
                 .subject("Pablo Eskamoso")
                 .type("Work")
-                .content("He steals paper sheets from work")
+                .content("Work"+" | "+"Pablo Eskamoso"+" | "+"He steals paper sheets from work")
                 .build();
         Information inf6 = Information.builder()
                 .subject("Project Master John")
                 .type("Work")
-                .content("He is fine with my work, but I can do better")
+                .content("Work"+" | "+"Project Master John"+" | "+"He is fine with my work, but I can do better")
                 .build();
         return Arrays.asList(inf1, inf2, inf3, inf4, inf5, inf6);
     }

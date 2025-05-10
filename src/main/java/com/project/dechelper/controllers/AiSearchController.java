@@ -20,7 +20,7 @@ public class AiSearchController {
     @PostMapping("/sentence")
     public List<Information> findInfoBySentence(@RequestBody SentenceDTO sentence) {
         String sql="WITH query_embedding AS (\n" +
-                "    SELECT ai.ollama_embed('nomic-embed-text', 'Epic science fiction movies', host => 'http://host.docker.internal:7869') AS embedding\n" +
+                "    SELECT ai.ollama_embed('nomic-embed-text', '"+sentence.getSentence()+"', host => 'http://host.docker.internal:7869') AS embedding\n" +
                 ")\n" +
                 "SELECT\n" +
                 "    m.id,\n" +
@@ -31,7 +31,7 @@ public class AiSearchController {
                 "FROM informations_embeddings t\n" +
                 "LEFT JOIN information m ON t.id = m.id\n" +
                 "ORDER BY distance\n" +
-                "LIMIT 5;";
+                "LIMIT "+sentence.getReturnInfoAmount()+";";
         return jdbcTemplate.query(sql, (rs, rowNum) ->
                 new Information(
                         rs.getInt("id"),
