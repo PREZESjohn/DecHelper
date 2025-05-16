@@ -9,8 +9,8 @@ import lombok.*;
 
 @Entity
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Information {
