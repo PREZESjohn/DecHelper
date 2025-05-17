@@ -29,6 +29,7 @@ public class AiSearchServiceImpl implements AiSearchService {
                 "    t.embedding <=> (SELECT embedding FROM query_embedding) AS distance\n" +
                 "FROM informations_embeddings t\n" +
                 "LEFT JOIN information m ON t.id = m.id\n" +
+                "WHERE (t.embedding <=> (SELECT embedding FROM query_embedding)) < 0.5\n" +
                 "ORDER BY distance\n" +
                 "LIMIT "+sentence.getReturnInfoAmount()+";";
         return jdbcTemplate.query(sql, (rs, rowNum) ->
