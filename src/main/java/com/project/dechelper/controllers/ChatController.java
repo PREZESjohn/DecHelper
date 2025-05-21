@@ -24,14 +24,11 @@ import java.util.stream.Collectors;
 public class ChatController {
     private final ChatClient chatClient;
 
-    @Autowired
-    private final VectorStore vectorStore;
     private final AiSearchService aiSearchService;
 
-    public ChatController(ChatClient.Builder builder, VectorStore vectorStore, AiSearchService aiSearchService) {
+    public ChatController(ChatClient.Builder builder, AiSearchService aiSearchService) {
         this.chatClient = builder
                 .build();
-        this.vectorStore = vectorStore;
         this.aiSearchService = aiSearchService;
     }
 
@@ -58,10 +55,7 @@ public class ChatController {
                     1. If the answer is not in the context, just say that you don't know.
                     2. Avoid statements like "Based on the context..." or "The provided information...".
                     """.formatted(message, relevantDataString);
-            //TODO caly proces analizy danych przez model jest do przepracowania. Raz na 5 razy uzywa kontekstu i przewaznie nie poprawnie.
-            // moze za slaby model, za mala ilosc rekordow, za malo informacji w danych
             String response = chatClient.prompt()
-//                    .advisors(new QuestionAnswerAdvisor(vectorStore))
                     .user(combinedMessage)
                     .call()
                     .content()
