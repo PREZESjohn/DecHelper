@@ -1,5 +1,7 @@
 package com.project.dechelper.bootData;
 
+import aj.org.objectweb.asm.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.dechelper.model.Information;
 import com.project.dechelper.repositories.InformationRepository;
 import lombok.Builder;
@@ -8,6 +10,8 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +24,13 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        informationRepository.saveAll(createInformations());
+        informationRepository.saveAll(getInformationsFromJson("/json/sample_records.json"));
+    }
+
+    private List<Information> getInformationsFromJson(String json) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        InputStream jsonStream = TypeReference.class.getResourceAsStream(json);
+        return Arrays.asList(mapper.readValue(jsonStream, Information[].class));
     }
 
     private List<Information> createInformations() {
