@@ -5,15 +5,16 @@ import com.project.dechelper.model.SentenceDTO;
 import com.project.dechelper.services.AiSearchService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.memory.ChatMemory;
+import org.springframework.ai.chat.memory.InMemoryChatMemory;
+import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
 import java.util.List;
@@ -24,16 +25,14 @@ import java.util.stream.Collectors;
 @Tag(name = "chat ai")
 public class ChatController {
     private final ChatClient chatClient;
-
+    private final ChatMemory chatMemory;
     private final AiSearchService aiSearchService;
 
-    public ChatController(ChatClient.Builder builder, AiSearchService aiSearchService) {
-        this.chatClient = builder
-                .build();
+    public ChatController(ChatClient chatClient, ChatMemory chatMemory, AiSearchService aiSearchService) {
+        this.chatClient = chatClient;
+        this.chatMemory = chatMemory;
         this.aiSearchService = aiSearchService;
     }
-
-
 
     @GetMapping("/generate")
     public ResponseEntity<String> generate(@RequestParam(value = "message") String message){
@@ -97,5 +96,14 @@ public class ChatController {
             e.printStackTrace();
             return ResponseEntity.internalServerError().body(Flux.just("Something went wrong"));
         }
+    }
+    @GetMapping("/history")
+    public List<Message> getHistory(){
+        return chatMemory.get("default", 20);
+    }
+    @DeleteMapping("history")
+    public ResponseEntity<String> deleteHistory(){
+        chatMemory.clear("default");
+        return ResponseEntity.ok("Deleted history");
     }
 }
