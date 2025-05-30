@@ -28,6 +28,11 @@ public class ChatController {
     private final ChatMemory chatMemory;
     private final AiSearchService aiSearchService;
 
+    //maximum amount of return informations from RAG
+    private final Integer infoReturnAmount=10;
+    //how much data must be precise to request (lower = more precise)
+    private final Double similarityThreshold=0.4;
+
     public ChatController(ChatClient chatClient, ChatMemory chatMemory, AiSearchService aiSearchService) {
         this.chatClient = chatClient;
         this.chatMemory = chatMemory;
@@ -37,7 +42,9 @@ public class ChatController {
     @GetMapping("/generate")
     public ResponseEntity<String> generate(@RequestParam(value = "message") String message){
         try {
-            List<Information> relevantData = aiSearchService.getRelevantData(SentenceDTO.builder().sentence(message).returnInfoAmount(2).build());
+            List<Information> relevantData = aiSearchService.getRelevantData(
+                    SentenceDTO.builder().sentence(message).build()
+            );
             String relevantDataString = relevantData.stream().map(Information::getContent).collect(Collectors.joining("\n"));
             String combinedMessage = """
                     %s
@@ -69,7 +76,13 @@ public class ChatController {
     @GetMapping("/stream")
     public ResponseEntity<Flux<String>> generateStream(@RequestParam(value = "message") String message){
         try {
-            List<Information> relevantData = aiSearchService.getRelevantData(SentenceDTO.builder().sentence(message).returnInfoAmount(2).build());
+            List<Information> relevantData = aiSearchService.getRelevantData(
+                    SentenceDTO.builder()
+                            .sentence(message)
+                            .similarityThreshold(similarityThreshold)
+                            .returnInfoAmount(infoReturnAmount)
+                            .build()
+            );
             String relevantDataString = relevantData.stream().map(Information::getContent).collect(Collectors.joining("\n"));
             String combinedMessage = """
                     %s
