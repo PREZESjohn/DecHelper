@@ -24,7 +24,7 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        informationRepository.saveAll(getInformationsFromJson("/json/sample_records.json"));
+//        informationRepository.saveAll(getInformationsFromJson("/json/sample_records.json"));
     }
 
     private List<Information> getInformationsFromJson(String json) throws IOException {
