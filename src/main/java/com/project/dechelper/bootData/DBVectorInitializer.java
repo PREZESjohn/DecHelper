@@ -32,7 +32,7 @@ public class DBVectorInitializer implements ApplicationRunner {
                 "\tembedding vector(1536)\n" +
                 ");";
         jdbcTemplate.execute(createTableSQL);
-        String createIndex = "CREATE INDEX ON vector_store USING HNSW (embedding vector_cosine_ops);";
+        String createIndex = "CREATE INDEX IF NOT EXISTS vector_store_hnsw_idx ON vector_store USING HNSW (embedding vector_cosine_ops);";
         jdbcTemplate.execute(createIndex);
     }
 }
