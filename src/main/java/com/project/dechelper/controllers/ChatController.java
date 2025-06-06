@@ -4,10 +4,15 @@ import com.project.dechelper.model.Information;
 import com.project.dechelper.model.SentenceDTO;
 import com.project.dechelper.services.AiSearchService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.hibernate.sql.ast.tree.expression.QueryTransformer;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.Message;
+import org.springframework.ai.rag.Query;
+import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,21 +29,27 @@ import java.util.stream.Collectors;
 public class ChatController {
     private final ChatClient chatClient;
     private final ChatMemory chatMemory;
-    @Autowired
-    VectorStore vectorStore;
+    private final VectorStore vectorStore;
 
-    public ChatController(ChatClient chatClient, ChatMemory chatMemory) {
+    public ChatController(ChatClient chatClient, ChatMemory chatMemory, VectorStore vectorStore) {
         this.chatClient = chatClient;
         this.chatMemory = chatMemory;
+        this.vectorStore = vectorStore;
     }
 
     @GetMapping("/stream")
     public ResponseEntity<Flux<String>> generateStream(@RequestParam(value = "message") String message){
         try {
             QuestionAnswerAdvisor qa=QuestionAnswerAdvisor.builder(vectorStore)
-                    .searchRequest(SearchRequest.builder().similarityThreshold(0.4d).build()).build();
+                    .searchRequest(SearchRequest.builder().similarityThreshold(0.5d).build()).build();
 
+            Query query = new Query(message);
+
+            RewriteQueryTransformer queryTransformer = RewriteQueryTransformer.builder()
+                    .chatClientBuilder(chatClient.mutate())
+                    .build();
             Flux<String> response = chatClient.prompt()
+                    .advisors(new SimpleLoggerAdvisor())
                     .advisors(qa)
                     .user(message)
                     .stream()
@@ -51,7 +62,7 @@ public class ChatController {
     }
     @GetMapping("/history")
     public List<Message> getHistory(){
-        return chatMemory.get("default", 20);
+        return chatMemory.get("default");
     }
 
     @DeleteMapping("history")
