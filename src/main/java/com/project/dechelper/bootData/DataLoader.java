@@ -30,13 +30,19 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        vectorStore.add(createDocumentsFromInformation());
+        vectorStore.add(getDocumentsFromJson("/json/transformed_records.json"));
     }
 
     private List<Information> getInformationsFromJson(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         InputStream jsonStream = TypeReference.class.getResourceAsStream(json);
         return Arrays.asList(mapper.readValue(jsonStream, Information[].class));
+    }
+
+    private List<Document> getDocumentsFromJson(String json) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        InputStream jsonStream = TypeReference.class.getResourceAsStream(json);
+        return Arrays.asList(mapper.readValue(jsonStream, Document[].class));
     }
 
     private List<Document> createDocumentsFromInformation() {
