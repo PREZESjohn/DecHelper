@@ -3,6 +3,7 @@ package com.project.dechelper.controllers;
 import com.project.dechelper.model.Information;
 import com.project.dechelper.model.SentenceDTO;
 import com.project.dechelper.services.AiSearchService;
+import com.project.dechelper.toolCalling.DataRetrivalTools;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.hibernate.sql.ast.tree.expression.QueryTransformer;
 import org.springframework.ai.chat.client.ChatClient;
@@ -53,21 +54,12 @@ public class ChatController {
             RewriteQueryTransformer queryTransformer = RewriteQueryTransformer.builder()
                     .chatClientBuilder(chatClient.mutate())
                     .build();
-//            Advisor retrievalAugmentationAdvisor = RetrievalAugmentationAdvisor.builder()
-//                    //.queryTransformers(queryTransformer)
-//                    .documentRetriever(VectorStoreDocumentRetriever.builder()
-//                            .similarityThreshold(0.55)
-//                            .vectorStore(vectorStore)
-//                            .build())
-//                    .queryAugmenter(ContextualQueryAugmenter.builder()
-//                            .allowEmptyContext(true)
-//                            .build())
-//                    .build();
+
             Flux<String> response = chatClient.prompt()
                     .advisors(new SimpleLoggerAdvisor())
-                    .advisors(qa)
-//                    .user(queryTransformer.transform(query).text())
                     .user(message)
+//                    .advisors(qa)
+                    .tools(new DataRetrivalTools())
                     .stream()
                     .content();
             return ResponseEntity.ok(response);
