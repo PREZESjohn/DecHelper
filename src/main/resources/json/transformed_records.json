@@ -1,0 +1,352 @@
+[
+  {
+    "content": "Family | Cousin Martin | On 01.02.2023, he borrowed $123 from me.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Martin"
+    }
+  },
+  {
+    "content": "Family | Cousin Martin | On 15.03.2023, he visited for a family dinner.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Martin"
+    }
+  },
+  {
+    "content": "Family | Cousin Martin | On 20.06.2023, he helped me move furniture.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Martin"
+    }
+  },
+  {
+    "content": "Work | Work Chef John | On 10.01.2023, he prepared a special menu for the team.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Chef John"
+    }
+  },
+  {
+    "content": "Work | Work Chef John | On 05.04.2023, he received a promotion to head chef.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Chef John"
+    }
+  },
+  {
+    "content": "Work | Work Chef John | On 12.07.2023, he trained new kitchen staff.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Chef John"
+    }
+  },
+  {
+    "content": "Friends | Gabriela Martines | On 03.03.2023, we went hiking together.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Gabriela Martines"
+    }
+  },
+  {
+    "content": "Friends | Gabriela Martines | On 25.05.2023, she hosted a game night.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Gabriela Martines"
+    }
+  },
+  {
+    "content": "Friends | Gabriela Martines | On 10.08.2023, she shared her travel photos from Spain.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Gabriela Martines"
+    }
+  },
+  {
+    "content": "Family | Aunt Clara | On 14.02.2023, she sent me a birthday card.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Aunt Clara"
+    }
+  },
+  {
+    "content": "Family | Aunt Clara | On 30.04.2023, she baked cookies for the family gathering.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Aunt Clara"
+    }
+  },
+  {
+    "content": "Family | Aunt Clara | On 22.09.2023, she called to check in on me.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Aunt Clara"
+    }
+  },
+  {
+    "content": "Work | Colleague Sarah | On 17.01.2023, she led the project meeting.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague Sarah"
+    }
+  },
+  {
+    "content": "Work | Colleague Sarah | On 08.05.2023, she shared her presentation slides.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague Sarah"
+    }
+  },
+  {
+    "content": "Work | Colleague Sarah | On 19.10.2023, she organized a team-building event.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague Sarah"
+    }
+  },
+  {
+    "content": "Friends | Friend Tom | On 12.02.2023, we watched a football game together.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Tom"
+    }
+  },
+  {
+    "content": "Friends | Friend Tom | On 06.06.2023, he recommended a new book.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Tom"
+    }
+  },
+  {
+    "content": "Friends | Friend Tom | On 14.11.2023, he invited me to a concert.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Tom"
+    }
+  },
+  {
+    "content": "Family | Uncle Bob | On 28.02.2023, he fixed my car.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Uncle Bob"
+    }
+  },
+  {
+    "content": "Family | Uncle Bob | On 01.07.2023, he shared his fishing tips.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Uncle Bob"
+    }
+  },
+  {
+    "content": "Family | Uncle Bob | On 15.12.2023, he attended the holiday party.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Uncle Bob"
+    }
+  },
+  {
+    "content": "Work | Manager Lisa | On 20.03.2023, she approved my vacation request.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Manager Lisa"
+    }
+  },
+  {
+    "content": "Work | Manager Lisa | On 10.06.2023, she gave feedback on my report.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Manager Lisa"
+    }
+  },
+  {
+    "content": "Work | Manager Lisa | On 05.09.2023, she led a strategy meeting.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Manager Lisa"
+    }
+  },
+  {
+    "content": "Friends | Friend Anna | On 04.04.2023, we went to a pottery class.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Anna"
+    }
+  },
+  {
+    "content": "Friends | Friend Anna | On 18.07.2023, she helped me plan a party.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Anna"
+    }
+  },
+  {
+    "content": "Friends | Friend Anna | On 02.10.2023, she sent me a funny meme.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Anna"
+    }
+  },
+  {
+    "content": "Family | Cousin Emily | On 09.01.2023, she graduated from college.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Emily"
+    }
+  },
+  {
+    "content": "Family | Cousin Emily | On 22.05.2023, she started a new job.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Emily"
+    }
+  },
+  {
+    "content": "Family | Cousin Emily | On 17.08.2023, she visited for a weekend.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Emily"
+    }
+  },
+  {
+    "content": "Work | Work Intern Mike | On 13.03.2023, he completed his first task.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Intern Mike"
+    }
+  },
+  {
+    "content": "Work | Work Intern Mike | On 25.06.2023, he presented his project.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Intern Mike"
+    }
+  },
+  {
+    "content": "Work | Work Intern Mike | On 30.11.2023, he extended his internship.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Intern Mike"
+    }
+  },
+  {
+    "content": "Friends | Friend Lucas | On 07.02.2023, he joined me for a movie night.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Lucas"
+    }
+  },
+  {
+    "content": "Friends | Friend Lucas | On 14.06.2023, he bought a new bike.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Lucas"
+    }
+  },
+  {
+    "content": "Friends | Friend Lucas | On 09.09.2023, we went on a road trip.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Lucas"
+    }
+  },
+  {
+    "content": "Family | Grandma Rose | On 16.01.2023, she taught me a new recipe.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Grandma Rose"
+    }
+  },
+  {
+    "content": "Family | Grandma Rose | On 29.04.2023, she shared old family photos.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Grandma Rose"
+    }
+  },
+  {
+    "content": "Family | Grandma Rose | On 11.10.2023, she celebrated her 80th birthday.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Grandma Rose"
+    }
+  },
+  {
+    "content": "Work | Colleague David | On 21.02.2023, he fixed a software bug.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague David"
+    }
+  },
+  {
+    "content": "Work | Colleague David | On 03.07.2023, he collaborated on a new feature.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague David"
+    }
+  },
+  {
+    "content": "Work | Colleague David | On 27.11.2023, he attended a tech conference.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague David"
+    }
+  },
+  {
+    "content": "Friends | Friend Sophie | On 19.03.2023, she adopted a puppy.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Sophie"
+    }
+  },
+  {
+    "content": "Friends | Friend Sophie | On 08.08.2023, we went to a comedy show.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Sophie"
+    }
+  },
+  {
+    "content": "Friends | Friend Sophie | On 12.12.2023, she started a new hobby.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Sophie"
+    }
+  },
+  {
+    "content": "Family | Brother Sam | On 05.01.2023, he got a new gaming console.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Brother Sam"
+    }
+  },
+  {
+    "content": "Family | Brother Sam | On 15.05.2023, he helped me with math homework.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Brother Sam"
+    }
+  },
+  {
+    "content": "Family | Brother Sam | On 20.10.2023, he joined a soccer team.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Brother Sam"
+    }
+  },
+  {
+    "content": "Work | Team Lead Rachel | On 11.04.2023, she launched a new project.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Team Lead Rachel"
+    }
+  },
+  {
+    "content": "Work | Team Lead Rachel | On 23.07.2023, she reviewed our quarterly goals.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Team Lead Rachel"
+    }
+  }
+]

@@ -19,17 +19,20 @@ public class DBVectorInitializer implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         String enableExtSQl = "CREATE EXTENSION IF NOT EXISTS vector CASCADE; \n" +
-                "CREATE EXTENSION IF NOT EXISTS ai CASCADE;";
+                "CREATE EXTENSION IF NOT EXISTS hstore CASCADE; \n" +
+                "CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\" CASCADE;";
         int enableExtRet = jdbcTemplate.update(enableExtSQl);
         if(enableExtRet > 0) {
             System.out.println("Extensions enabled");
         }
-        String createVectorizeSQl = "SELECT ai.create_vectorizer(\n" +
-                "   'information'::regclass,\n" +
-                "   destination => 'informations_embeddings',\n" +
-                "   embedding => ai.embedding_ollama('nomic-embed-text', 768),\n" +
-                "   chunking => ai.chunking_recursive_character_text_splitter('content')\n" +
+        String createTableSQL = "CREATE TABLE IF NOT EXISTS vector_store (\n" +
+                "\tid uuid DEFAULT uuid_generate_v4() PRIMARY KEY,\n" +
+                "\tcontent text,\n" +
+                "\tmetadata json,\n" +
+                "\tembedding vector(1536)\n" +
                 ");";
-        jdbcTemplate.execute(createVectorizeSQl);
+        jdbcTemplate.execute(createTableSQL);
+        String createIndex = "CREATE INDEX IF NOT EXISTS vector_store_hnsw_idx ON vector_store USING HNSW (embedding vector_cosine_ops);";
+        jdbcTemplate.execute(createIndex);
     }
 }
