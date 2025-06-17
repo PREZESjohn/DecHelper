@@ -9,5 +9,8 @@ import lombok.*;
 @Setter
 public class SentenceDTO {
     private String sentence;
-    private int returnInfoAmount;
+    @Builder.Default
+    private Double similarityThreshold=0.5;
+    @Builder.Default
+    private int returnInfoAmount=2;
 }

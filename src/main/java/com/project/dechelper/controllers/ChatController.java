@@ -25,6 +25,7 @@ public class ChatController {
     private final VectorStore vectorStore;
     private final DataRetrivalTools dataRetrievalTools;
 
+
     public ChatController(ChatClient chatClient, ChatMemory chatMemory, VectorStore vectorStore, DataRetrivalTools dataRetrievalTools) {
         this.chatClient = chatClient;
         this.chatMemory = chatMemory;
