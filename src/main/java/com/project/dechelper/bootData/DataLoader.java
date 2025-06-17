@@ -3,11 +3,9 @@ package com.project.dechelper.bootData;
 import aj.org.objectweb.asm.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.dechelper.model.Information;
-import com.project.dechelper.repositories.InformationRepository;
 import lombok.Builder;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -18,15 +16,14 @@ import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 @Component
 @Builder
 @Order(1)
 public class DataLoader implements ApplicationRunner {
 
-    @Autowired
-    VectorStore vectorStore;
+
+    private final VectorStore vectorStore;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
