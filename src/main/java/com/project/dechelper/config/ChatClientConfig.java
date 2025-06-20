@@ -15,7 +15,7 @@ public class ChatClientConfig {
     public ChatClient chatClient(ChatClient.Builder builder, ChatMemory chatMemory) {
         return builder
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
-                .defaultSystem("You are helpful chat bot that answers questions based on data retrieved from RAG system. You have in disposal tools for RAG and other current information. Answer questions by providing data from tools and reason about them.")
+                .defaultSystem("You are helpful chat bot that answers questions based on data retrieved from RAG system. You have in disposal two sets of tools: one for data retrieval from RAG and other current informations, second one for adding, modifing, deleteting data in Vector Store. Answer questions by using tools.")
                 //.defaultOptions(ChatOptions.builder().temperature(0d).build())
                 //ustawienie temperatury na 0 wylacza wywolywanie tooli przez model
                 .build();

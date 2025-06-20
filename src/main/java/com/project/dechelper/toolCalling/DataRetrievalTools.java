@@ -11,12 +11,14 @@ import org.springframework.context.i18n.LocaleContextHolder;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class DataRetrievalTools {
 
     private final VectorStore vectorStore;
+    Logger log = Logger.getLogger(DataRetrievalTools.class.getName());
 
     @Tool(description = "Get data from RAG about informations from user prompt")
     public String getRelevantData(String query){
@@ -27,12 +29,12 @@ public class DataRetrievalTools {
                 .build();
         List<Document> documents = retriever.retrieve(new Query(query));
         String documentsString = documents.stream().map(Document::getText).collect(Collectors.joining("\n"));
-        System.out.println("Documents from RAG: "+documentsString);
+        log.info("Query: "+query+" | Documents from RAG: "+documentsString);
         return documentsString;
     }
     @Tool(description = "Current date and time in the user's timezone")
     public String getCurrentDateTime(){
-        System.out.println("------------uruchomienie toola---------------");
+        log.info("Date and time: "+LocalDateTime.now());
         return LocalDateTime.now().atZone(LocaleContextHolder.getTimeZone().toZoneId()).toString();
     }
 }

@@ -1,5 +1,6 @@
 package com.project.dechelper.controllers;
 
+import com.project.dechelper.toolCalling.DataModifyTools;
 import com.project.dechelper.toolCalling.DataRetrievalTools;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.ai.chat.client.ChatClient;
@@ -24,13 +25,15 @@ public class ChatController {
     private final ChatMemory chatMemory;
     private final VectorStore vectorStore;
     private final DataRetrievalTools dataRetrievalTools;
+    private final DataModifyTools dataModifyTools;
 
 
-    public ChatController(ChatClient chatClient, ChatMemory chatMemory, VectorStore vectorStore, DataRetrievalTools dataRetrievalTools) {
+    public ChatController(ChatClient chatClient, ChatMemory chatMemory, VectorStore vectorStore, DataRetrievalTools dataRetrievalTools, DataModifyTools dataModifyTools) {
         this.chatClient = chatClient;
         this.chatMemory = chatMemory;
         this.vectorStore = vectorStore;
         this.dataRetrievalTools = dataRetrievalTools;
+        this.dataModifyTools = dataModifyTools;
     }
 
     @GetMapping("/stream")
@@ -48,7 +51,7 @@ public class ChatController {
                     .advisors(new SimpleLoggerAdvisor())
                     .user(message)
 //                    .advisors(qa)
-                    .tools(dataRetrievalTools)
+                    .tools(dataRetrievalTools ,dataModifyTools)
                     .stream()
                     .content();
             return ResponseEntity.ok(response);
@@ -63,7 +66,7 @@ public class ChatController {
             String response = chatClient.prompt()
                     .advisors(new SimpleLoggerAdvisor())
                     .user(message)
-                    .tools(dataRetrievalTools)
+                    .tools(dataRetrievalTools, dataModifyTools)
                     .call()
                     .content();
             return ResponseEntity.ok(response);

@@ -1,5 +1,7 @@
 package com.project.dechelper;
 
+import com.project.dechelper.services.DocumentService;
+import com.project.dechelper.toolCalling.DataModifyTools;
 import com.project.dechelper.toolCalling.DataRetrievalTools;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +19,11 @@ public class DecHelperApplication {
     @Bean
     public DataRetrievalTools dataRetrivalTools(VectorStore vectorStore) {
         return new DataRetrievalTools(vectorStore);
+    }
+
+    @Bean
+    public DataModifyTools dataModifyTools(DocumentService documentService) {
+        return new DataModifyTools(documentService);
     }
 
 }
