@@ -12,6 +12,7 @@ public interface DocumentService {
     List<Document> getAllDocsBySubject(String subject);
 
     void saveDoc(Document document);
+    void updateDoc(Document document);
     void deleteDocById(String id);
     void deleteAllDocsBySubject(String subject);
 

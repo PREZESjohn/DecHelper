@@ -1,6 +1,6 @@
 package com.project.dechelper;
 
-import com.project.dechelper.toolCalling.DataRetrivalTools;
+import com.project.dechelper.toolCalling.DataRetrievalTools;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,8 +15,8 @@ public class DecHelperApplication {
     }
 
     @Bean
-    public DataRetrivalTools dataRetrivalTools(VectorStore vectorStore) {
-        return new DataRetrivalTools(vectorStore);
+    public DataRetrievalTools dataRetrivalTools(VectorStore vectorStore) {
+        return new DataRetrievalTools(vectorStore);
     }
 
 }

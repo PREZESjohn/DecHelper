@@ -1,5 +1,6 @@
 package com.project.dechelper.controllers;
 
+import com.project.dechelper.model.DocumentDTO;
 import com.project.dechelper.model.Information;
 import com.project.dechelper.services.DocumentService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -33,9 +34,16 @@ public class DocumentController {
 
     @PutMapping("/add")
     @Operation(summary = "Save information")
-    public ResponseEntity<?> saveDoc(@RequestBody Document document) {
-        documentService.saveDoc(document);
+    public ResponseEntity<?> saveDoc(@RequestBody DocumentDTO documentDTO) {
+        Document dc = new Document(documentDTO.getText(), documentDTO.getMetadata());
+        documentService.saveDoc(dc);
         return ResponseEntity.ok("Document saved successfully");
+    }
+    @PutMapping("/update")
+    public ResponseEntity<?> updateDoc(@RequestBody DocumentDTO documentDTO) {
+        Document dc = new Document(documentDTO.getId(),documentDTO.getText(), documentDTO.getMetadata());
+        documentService.updateDoc(dc);
+        return ResponseEntity.ok("Document updated successfully");
     }
 
     @DeleteMapping("/delete-id/{id}")

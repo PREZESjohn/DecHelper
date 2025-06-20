@@ -34,6 +34,12 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
+    public void updateDoc(Document document) {
+        vectorStore.delete(List.of(document.getId()));
+        vectorStore.add(List.of(document));
+    }
+
+    @Override
     public void deleteDocById(String id) {
         vectorStore.delete(List.of(id));
     }

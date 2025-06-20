@@ -1,6 +1,6 @@
 package com.project.dechelper.controllers;
 
-import com.project.dechelper.toolCalling.DataRetrivalTools;
+import com.project.dechelper.toolCalling.DataRetrievalTools;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -23,10 +23,10 @@ public class ChatController {
     private final ChatClient chatClient;
     private final ChatMemory chatMemory;
     private final VectorStore vectorStore;
-    private final DataRetrivalTools dataRetrievalTools;
+    private final DataRetrievalTools dataRetrievalTools;
 
 
-    public ChatController(ChatClient chatClient, ChatMemory chatMemory, VectorStore vectorStore, DataRetrivalTools dataRetrievalTools) {
+    public ChatController(ChatClient chatClient, ChatMemory chatMemory, VectorStore vectorStore, DataRetrievalTools dataRetrievalTools) {
         this.chatClient = chatClient;
         this.chatMemory = chatMemory;
         this.vectorStore = vectorStore;
