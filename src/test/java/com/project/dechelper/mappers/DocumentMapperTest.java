@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class DocumentMapperTest {
@@ -22,9 +23,9 @@ public class DocumentMapperTest {
 
     @Test
     public void mapRowTest() throws SQLException {
-        Mockito.when(resultSet.getString("id")).thenReturn("myId");
-        Mockito.when(resultSet.getString("content")).thenReturn("myContent");
-        Mockito.when(resultSet.getString("metadata")).thenReturn("{\"meta\": \"data\"}");
+        when(resultSet.getString("id")).thenReturn("myId");
+        when(resultSet.getString("content")).thenReturn("myContent");
+        when(resultSet.getString("metadata")).thenReturn("{\"meta\": \"data\"}");
 
         DocumentMapper documentMapper = new DocumentMapper();
         Document document = documentMapper.mapRow(resultSet, 0);
