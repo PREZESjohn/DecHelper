@@ -6,6 +6,7 @@ import org.springframework.ai.rag.Query;
 import org.springframework.ai.rag.retrieval.search.DocumentRetriever;
 import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever;
 import org.springframework.ai.tool.annotation.Tool;
+import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.context.i18n.LocaleContextHolder;
 
@@ -20,8 +21,8 @@ public class DataRetrievalTools {
     private final VectorStore vectorStore;
     Logger log = Logger.getLogger(DataRetrievalTools.class.getName());
 
-    @Tool(description = "Get data from RAG about informations from user prompt")
-    public String getRelevantData(String query){
+    @Tool(description = "Get data from user diary")
+    public String getRelevantData(@ToolParam(description = "Subject of user prompt") String query){
         DocumentRetriever retriever = VectorStoreDocumentRetriever.builder()
                 .vectorStore(vectorStore)
                 .similarityThreshold(0.55)

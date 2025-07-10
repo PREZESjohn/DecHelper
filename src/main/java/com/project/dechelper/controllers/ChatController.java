@@ -8,6 +8,7 @@ import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.messages.Message;
+import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -42,15 +43,14 @@ public class ChatController {
             QuestionAnswerAdvisor qa=QuestionAnswerAdvisor.builder(vectorStore)
                     .searchRequest(SearchRequest.builder().similarityThreshold(0.55d).topK(20).build()).build();
 
-
             //QueryTransformer bedzie dzialal dla zapytan o dlugiej tresci i zawilosci. Dla prostych nie jest to dobre rozwiazanie
             RewriteQueryTransformer queryTransformer = RewriteQueryTransformer.builder()
                     .chatClientBuilder(chatClient.mutate())
                     .build();
+
+
             Flux<String> response = chatClient.prompt()
-                    .advisors(new SimpleLoggerAdvisor())
                     .user(message)
-//                    .advisors(qa)
                     .tools(dataRetrievalTools ,dataModifyTools)
                     .stream()
                     .content();
