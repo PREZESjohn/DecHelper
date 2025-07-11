@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document CRUD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="crud.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+<!-- Horizontal Navigation Menu -->
+<nav class="bg-blue-600 text-white p-4">
+    <ul class="flex space-x-6">
+        <li><a href="index.html" class="hover:underline">Chat</a></li>
+        <li><a href="crud.html" class="hover:underline">Document CRUD</a></li>
+    </ul>
+</nav>
+<div class="flex-1 p-4">
+    <h1 class="text-2xl font-bold mb-4">Document CRUD Operations</h1>
+
+    <!-- Create/Update Form -->
+    <div class="bg-white p-4 rounded shadow mb-6">
+        <h2 class="text-xl font-semibold mb-2">Add/Edit Document</h2>
+        <form id="document-form">
+            <div class="mb-4">
+                <label for="doc-id" class="block text-sm font-medium text-gray-700">ID</label>
+                <input type="text" id="doc-id" class="mt-1 block w-full border rounded p-2"
+                       placeholder="Enter document ID" readonly>
+            </div>
+            <div class="mb-4">
+                <label for="doc-text" class="block text-sm font-medium text-gray-700">Text</label>
+                <textarea id="doc-text" class="mt-1 block w-full border rounded p-2" placeholder="Enter document text"
+                          rows="4"></textarea>
+            </div>
+            <div class="mb-4">
+                <label for="doc-metadata" class="block text-sm font-medium text-gray-700">Metadata (JSON)</label>
+                <textarea id="doc-metadata" class="mt-1 block w-full border rounded p-2"
+                          placeholder='Enter metadata as JSON, e.g., {"key": "value"}'></textarea>
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save Document</button>
+            <button type="button" id="clear-form" class="bg-gray-300 text-black px-4 py-2 rounded ml-2">Clear Form
+            </button>
+        </form>
+    </div>
+
+    <!-- Document List -->
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">Documents</h2>
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Text</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Metadata</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+            </tr>
+            </thead>
+            <tbody id="document-table" class="divide-y divide-gray-200"></tbody>
+        </table>
+    </div>
+</div>
+<script src="crud.js"></script>
+</body>
+</html>
