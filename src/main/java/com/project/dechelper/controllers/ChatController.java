@@ -1,5 +1,6 @@
 package com.project.dechelper.controllers;
 
+import com.project.dechelper.advisors.Qwen3ThinkFilterAdvisor;
 import com.project.dechelper.toolCalling.DataModifyTools;
 import com.project.dechelper.toolCalling.DataRetrievalTools;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -48,9 +49,10 @@ public class ChatController {
                     .chatClientBuilder(chatClient.mutate())
                     .build();
 
-
+            //TODO gdy Sring AI wypusci opcje zeby wyłączać "thinking" w ich frameworku dla modeli, nalezy jej uzyc dla qwen 3
             Flux<String> response = chatClient.prompt()
                     .user(message)
+                    .advisors(new Qwen3ThinkFilterAdvisor(false))
                     .tools(dataRetrievalTools ,dataModifyTools)
                     .stream()
                     .content();
@@ -64,8 +66,8 @@ public class ChatController {
     public ResponseEntity<String> generateTestWithToolCall(@RequestParam(value = "message") String message){
         try {
             String response = chatClient.prompt()
-                    .advisors(new SimpleLoggerAdvisor())
                     .user(message)
+                    .advisors(new Qwen3ThinkFilterAdvisor(false))
                     .tools(dataRetrievalTools, dataModifyTools)
                     .call()
                     .content();
