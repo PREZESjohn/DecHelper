@@ -1,5 +1,6 @@
 package com.project.dechelper.config;
 
+import com.project.dechelper.advisors.Qwen3ThinkFilterAdvisor;
 import lombok.SneakyThrows;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
@@ -22,6 +23,9 @@ public class ChatClientConfig {
     @Value("classpath:chatSystemConfig.txt")
     private Resource chatSystemConfig;
 
+    @Value("${spring.ai.ollama.chat.model}")
+    private String chatModel;
+
     @SneakyThrows
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder, ChatMemory chatMemory) {
@@ -29,7 +33,7 @@ public class ChatClientConfig {
                 .defaultAdvisors(new SimpleLoggerAdvisor())
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultSystem(chatSystemConfig.getContentAsString(StandardCharsets.UTF_8))
-                .defaultOptions(OllamaOptions.builder().numPredict(-1).build())
+                .defaultOptions(OllamaOptions.builder().numPredict(400).model(chatModel).build())
                 //ustawienie temperatury na 0 wylacza wywolywanie tooli przez model
                 .build();
     }
