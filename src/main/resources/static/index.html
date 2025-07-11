@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Stream</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 h-screen flex flex-col">
-<div class="flex-1 overflow-y-auto p-4">
-    <div id="chat-messages" class="space-y-4"></div>
-</div>
-<div class="p-4 bg-white">
-    <form id="chat-form" autocomplete="off">
-        <div class="flex space-x-4">
-            <input type="text" id="message-input" class="flex-1 border rounded p-2" placeholder="Type your message..." autocomplete="off">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Send</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat Stream</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-100 h-screen flex flex-col">
+        <nav class="bg-blue-600 text-white p-4">
+            <ul class="flex space-x-6">
+                <li><a href="index.html" class="hover:underline">Chat</a></li>
+                <li><a href="crud.html" class="hover:underline">Document CRUD</a></li>
+            </ul>
+        </nav>
+        <div class="flex-1 overflow-y-auto p-4">
+            <div id="chat-messages" class="space-y-4"></div>
         </div>
-    </form>
-</div>
-<script src="/js/stream.js"></script>
-</body>
+        <div class="p-4 bg-white">
+            <form id="chat-form" autocomplete="off">
+                <div class="flex space-x-4">
+                    <input type="text" id="message-input" class="flex-1 border rounded p-2" placeholder="Type your message..."
+                           autocomplete="off">
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Send</button>
+                </div>
+            </form>
+        </div>
+        <script src="/js/stream.js"></script>
+    </body>
 </html>
