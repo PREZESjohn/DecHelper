@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +29,18 @@ public class DocumentServiceImpl implements DocumentService {
     public List<Document> getAllDocsBySubject(String subject) {
         return jdbcTemplate.query("select *\n" +
                 "from vector_store where (metadata->>'Subject') = '"+subject+"';",new DocumentMapper());
+    }
+
+    @Override
+    public Page<Document> getAllDocsByPage(Pageable pageable) {
+        int total = jdbcTemplate.queryForObject("select count(1)" +
+                "from vector_store;", (rs, rowNum) -> rs.getInt(1));
+
+        List<Document> documentsByPage = jdbcTemplate.query("select *\n" +
+                "from vector_store "+
+                "LIMIT "+pageable.getPageSize()+" "+
+                "OFFSET "+pageable.getOffset()+";",new DocumentMapper());
+        return new PageImpl<>(documentsByPage,pageable,total);
     }
 
     @Override
