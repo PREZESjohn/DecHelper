@@ -18,23 +18,21 @@ public class DataModifyTools {
 
     Logger log = Logger.getLogger(this.getClass().getName());
 
-    @Tool(description = "Add document to vector store")
+    @Tool(description = "Add document/information to vector store")
     public String addDocumentInStore(@ToolParam(description = "Data transfer object for Document") DocumentDTO documentDTO) {
-        Document dc = new Document(documentDTO.getText(),documentDTO.getMetadata());
-        documentService.saveDoc(dc);
-        log.info("Potentionaly saved doc: "+ dc);
+        documentService.saveDoc(documentDTO);
+        log.info("Potentionaly saved doc: "+ documentDTO);
         return "Document added successfully";
     }
 
-    @Tool(description = "Update document in vector store")
+    @Tool(description = "Update document/information in vector store")
     public String updateDocumentInStore(@ToolParam(description = "Data transfer object for Document") DocumentDTO documentDTO) {
-        Document dc = new Document(documentDTO.getId(),documentDTO.getText(), documentDTO.getMetadata());
-        documentService.updateDoc(dc);
-        log.info("Potentionaly updated doc: "+ dc);
+        documentService.updateDoc(documentDTO);
+        log.info("Potentionaly updated doc: "+ documentDTO);
         return "Document updated successfully";
     }
 
-    @Tool(description = "Delete document in vector store")
+    @Tool(description = "Delete document/information in vector store")
     public String deleteDocumentInStore(String documentId) {
         documentService.deleteDocById(documentId);
         log.info("Potentionaly deleted doc of id: "+ documentId);

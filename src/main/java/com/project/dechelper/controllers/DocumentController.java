@@ -26,18 +26,18 @@ public class DocumentController {
 
     @GetMapping("/all")
     @Operation(summary = "Get all informations")
-    public ResponseEntity<List<Document>> getDocs() {
+    public ResponseEntity<List<DocumentDTO>> getDocs() {
         return ResponseEntity.ok(documentService.getAllDocs());
     }
 
     @GetMapping("/get-subject/{subject}")
     @Operation(summary = "Get informations for subject")
-    public ResponseEntity<List<Document>> getDocsBySubject(@PathVariable String subject) {
+    public ResponseEntity<List<DocumentDTO>> getDocsBySubject(@PathVariable String subject) {
         return ResponseEntity.ok(documentService.getAllDocsBySubject(subject));
     }
     @GetMapping("/all-page/page={page},offset={offset}")
     @Operation(summary = "Get all informations with pagination")
-    public ResponseEntity<Page<Document>> getDocsByPage(@PathVariable int page, @PathVariable int offset) {
+    public ResponseEntity<Page<DocumentDTO>> getDocsByPage(@PathVariable int page, @PathVariable int offset) {
         return ResponseEntity.ok(documentService.getAllDocsByPage(PageRequest.of(page, offset)));
     }
 
@@ -45,14 +45,12 @@ public class DocumentController {
     @PutMapping("/add")
     @Operation(summary = "Save information")
     public ResponseEntity<?> saveDoc(@RequestBody DocumentDTO documentDTO) {
-        Document dc = new Document(documentDTO.getText(), documentDTO.getMetadata());
-        documentService.saveDoc(dc);
+        documentService.saveDoc(documentDTO);
         return ResponseEntity.ok("Document saved successfully");
     }
     @PutMapping("/update")
     public ResponseEntity<?> updateDoc(@RequestBody DocumentDTO documentDTO) {
-        Document dc = new Document(documentDTO.getId(),documentDTO.getText(), documentDTO.getMetadata());
-        documentService.updateDoc(dc);
+        documentService.updateDoc(documentDTO);
         return ResponseEntity.ok("Document updated successfully");
     }
 

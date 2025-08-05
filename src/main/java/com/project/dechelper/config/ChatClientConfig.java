@@ -34,7 +34,6 @@ public class ChatClientConfig {
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultSystem(chatSystemConfig.getContentAsString(StandardCharsets.UTF_8))
                 .defaultOptions(OllamaOptions.builder().numPredict(400).model(chatModel).build())
-                //ustawienie temperatury na 0 wylacza wywolywanie tooli przez model
                 .build();
     }
 
