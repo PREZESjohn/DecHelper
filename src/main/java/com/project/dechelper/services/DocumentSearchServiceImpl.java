@@ -21,9 +21,9 @@ public class DocumentSearchServiceImpl implements DocumentSearchService {
     public List<Document> getRelevantData(SentenceDTO sentence) {
         return vectorStore.similaritySearch(
                 SearchRequest.builder()
-                        .query(sentence.getSentence())
-                        .similarityThreshold(sentence.getSimilarityThreshold())
-                        .topK(sentence.getReturnInfoAmount())
+                        .query(sentence.sentence())
+                        .similarityThreshold(sentence.similarityThreshold())
+                        .topK(sentence.returnInfoAmount())
                         .build()
         );
     }

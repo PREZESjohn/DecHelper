@@ -1,6 +1,8 @@
 package com.project.dechelper.services;
 
+import com.project.dechelper.mappers.DocumentDTOMapper;
 import com.project.dechelper.mappers.DocumentMapper;
+import com.project.dechelper.model.DocumentDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -20,38 +22,38 @@ public class DocumentServiceImpl implements DocumentService {
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<Document> getAllDocs() {
+    public List<DocumentDTO> getAllDocs() {
         return jdbcTemplate.query("select *\n" +
-                    "from vector_store;",new DocumentMapper());
+                    "from vector_store;",new DocumentDTOMapper());
     }
 
     @Override
-    public List<Document> getAllDocsBySubject(String subject) {
+    public List<DocumentDTO> getAllDocsBySubject(String subject) {
         return jdbcTemplate.query("select *\n" +
-                "from vector_store where (metadata->>'Subject') = '"+subject+"';",new DocumentMapper());
+                "from vector_store where (metadata->>'Subject') = '"+subject+"';",new DocumentDTOMapper());
     }
 
     @Override
-    public Page<Document> getAllDocsByPage(Pageable pageable) {
+    public Page<DocumentDTO> getAllDocsByPage(Pageable pageable) {
         int total = jdbcTemplate.queryForObject("select count(1)" +
                 "from vector_store;", (rs, rowNum) -> rs.getInt(1));
 
-        List<Document> documentsByPage = jdbcTemplate.query("select *\n" +
+        List<DocumentDTO> documentsByPage = jdbcTemplate.query("select *\n" +
                 "from vector_store "+
                 "LIMIT "+pageable.getPageSize()+" "+
-                "OFFSET "+pageable.getOffset()+";",new DocumentMapper());
+                "OFFSET "+pageable.getOffset()+";",new DocumentDTOMapper());
         return new PageImpl<>(documentsByPage,pageable,total);
     }
 
     @Override
-    public void saveDoc(Document document) {
-        vectorStore.add(List.of(document));
+    public void saveDoc(DocumentDTO document) {
+        vectorStore.add(List.of(new Document(document.text(),document.metadata())));
     }
 
     @Override
-    public void updateDoc(Document document) {
-        vectorStore.delete(List.of(document.getId()));
-        vectorStore.add(List.of(document));
+    public void updateDoc(DocumentDTO document) {
+        vectorStore.delete(List.of(document.id()));
+        vectorStore.add(List.of(new Document(document.id(),document.text(),document.metadata())));
     }
 
     @Override
