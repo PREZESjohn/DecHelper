@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DocumentDTOMapper implements RowMapper<DocumentDTO> {
@@ -16,7 +17,7 @@ public class DocumentDTOMapper implements RowMapper<DocumentDTO> {
     @SneakyThrows
     @Override
     public DocumentDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Map<String, Object> mapping = new ObjectMapper().readValue(rs.getString("metadata"), HashMap.class);
+        List<DocumentDTO.Metadata> mapping = new ObjectMapper().readValue(rs.getString("metadata"), List.class);
         DocumentDTO dc = new DocumentDTO(
                 rs.getString("id"),
                 rs.getString("content"),
