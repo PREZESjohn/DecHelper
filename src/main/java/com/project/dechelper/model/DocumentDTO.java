@@ -1,7 +1,9 @@
 package com.project.dechelper.model;
 
-import java.util.Map;
+import java.util.List;
 
-public record DocumentDTO(String id, String text, Map<String,Object> metadata){}
+public record DocumentDTO(String id, String text, List<Metadata> metadata){
+    public record Metadata(String key, String value){}
+}
 
 
