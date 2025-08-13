@@ -27,7 +27,7 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        vectorStore.add(getDocumentsFromJson("/json/transformed_records.json"));
+        vectorStore.add(getDocumentsFromJson("/json/test_records.json"));
     }
 
     private List<Information> getInformationsFromJson(String json) throws IOException {
