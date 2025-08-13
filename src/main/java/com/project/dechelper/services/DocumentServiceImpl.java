@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -54,7 +55,7 @@ public class DocumentServiceImpl implements DocumentService {
         Map<String, Object> metadataTmp = document.metadata();
 
         //add current date and time to metadata
-        metadataTmp.put("createdOn", LocalDateTime.now().toString());
+        metadataTmp.put("createdOn", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
 
         StringBuilder combinedText = new StringBuilder();
         for(Object value : metadataTmp.values()) {
