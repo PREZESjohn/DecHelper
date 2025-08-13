@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -50,26 +51,25 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public void saveDoc(DocumentDTO document) {
-        Map<String, Object> metadata = document.metadata().stream().collect(Collectors.toMap(
-                DocumentDTO.Metadata::key,DocumentDTO.Metadata::value
-        ));
+        Map<String, Object> metadataTmp = document.metadata();
+
+        //add current date and time to metadata
+        metadataTmp.put("createdOn", LocalDateTime.now().toString());
+
         StringBuilder combinedText = new StringBuilder();
-        for(Object value : metadata.values()) {
+        for(Object value : metadataTmp.values()) {
             if(value instanceof String) {
                 combinedText.append(value).append(" | ");
             }
         }
         combinedText.append(document.text());
-        vectorStore.add(List.of(new Document(combinedText.toString(),metadata)));
+        vectorStore.add(List.of(new Document(combinedText.toString(),metadataTmp)));
     }
 
     @Override
     public void updateDoc(DocumentDTO document) {
-        Map<String, Object> metadata = document.metadata().stream().collect(Collectors.toMap(
-                DocumentDTO.Metadata::key,DocumentDTO.Metadata::value
-        ));
         vectorStore.delete(List.of(document.id()));
-        vectorStore.add(List.of(new Document(document.id(),document.text(),metadata)));
+        vectorStore.add(List.of(new Document(document.id(),document.text(),document.metadata())));
     }
 
     @Override

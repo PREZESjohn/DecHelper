@@ -1,0 +1,402 @@
+[
+  {
+    "content": "Family | Cousin Martin | 2023-02-01 | He borrowed $123 from me.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Martin",
+      "createdOn": "2023-02-01"
+    }
+  },
+  {
+    "content": "Family | Cousin Martin | 2023-03-15 | He visited for a family dinner.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Martin",
+      "createdOn": "2023-03-15"
+    }
+  },
+  {
+    "content": "Family | Cousin Martin | 2023-06-20 | He helped me move furniture.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Martin",
+      "createdOn": "2023-06-20"
+    }
+  },
+  {
+    "content": "Work | Work Chef John | 2023-01-10 | He prepared a special menu for the team.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Chef John",
+      "createdOn": "2023-01-10"
+    }
+  },
+  {
+    "content": "Work | Work Chef John | 2023-04-05 | He received a promotion to head chef.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Chef John",
+      "createdOn": "2023-04-05"
+    }
+  },
+  {
+    "content": "Work | Work Chef John | 2023-07-12 | He trained new kitchen staff.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Chef John",
+      "createdOn": "2023-07-12"
+    }
+  },
+  {
+    "content": "Friends | Gabriela Martines | 2023-03-03 | We went hiking together.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Gabriela Martines",
+      "createdOn": "2023-03-03"
+    }
+  },
+  {
+    "content": "Friends | Gabriela Martines | 2023-05-25 | She hosted a game night.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Gabriela Martines",
+      "createdOn": "2023-05-25"
+    }
+  },
+  {
+    "content": "Friends | Gabriela Martines | 2023-08-10 | She shared her travel photos from Spain.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Gabriela Martines",
+      "createdOn": "2023-08-10"
+    }
+  },
+  {
+    "content": "Family | Aunt Clara | 2023-02-14 | She sent me a birthday card.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Aunt Clara",
+      "createdOn": "2023-02-14"
+    }
+  },
+  {
+    "content": "Family | Aunt Clara | 2023-04-30 | She baked cookies for the family gathering.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Aunt Clara",
+      "createdOn": "2023-04-30"
+    }
+  },
+  {
+    "content": "Family | Aunt Clara | 2023-09-22 | She called to check in me.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Aunt Clara",
+      "createdOn": "2023-09-22"
+    }
+  },
+  {
+    "content": "Work | Colleague Sarah | 2023-01-17 | She led the project meeting.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague Sarah",
+      "createdOn": "2023-01-17"
+    }
+  },
+  {
+    "content": "Work | Colleague Sarah | 2023-05-08 | She shared her presentation slides.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague Sarah",
+      "createdOn": "2023-05-08"
+    }
+  },
+  {
+    "content": "Work | Colleague Sarah | 2023-10-19 | She organized a team-building event.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague Sarah",
+      "createdOn": "2023-10-19"
+    }
+  },
+  {
+    "content": "Friends | Friend Tom | 2023-02-12 | We watched a football game together.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Tom",
+      "createdOn": "2023-02-12"
+    }
+  },
+  {
+    "content": "Friends | Friend Tom | 2023-06-06 | He recommended a new book.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Tom",
+      "createdOn": "2023-06-06"
+    }
+  },
+  {
+    "content": "Friends | Friend Tom | 2023-11-14 | He invited me to a concert.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Tom",
+      "createdOn": "2023-11-14"
+    }
+  },
+  {
+    "content": "Family | Uncle Bob | 2023-02-28 | He fixed my car.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Uncle Bob",
+      "createdOn": "2023-02-28"
+    }
+  },
+  {
+    "content": "Family | Uncle Bob | 2023-07-01 | He shared his fishing tips.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Uncle Bob",
+      "createdOn": "2023-07-01"
+    }
+  },
+  {
+    "content": "Family | Uncle Bob | 2023-12-15 | He attended the holiday party.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Uncle Bob",
+      "createdOn": "2023-12-15"
+    }
+  },
+  {
+    "content": "Work | Manager Lisa | 2023-03-20 | She approved my vacation request.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Manager Lisa",
+      "createdOn": "2023-03-20"
+    }
+  },
+  {
+    "content": "Work | Manager Lisa | 2023-06-10 | She gave feedback my report.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Manager Lisa",
+      "createdOn": "2023-06-10"
+    }
+  },
+  {
+    "content": "Work | Manager Lisa | 2023-09-05 | She led a strategy meeting.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Manager Lisa",
+      "createdOn": "2023-09-05"
+    }
+  },
+  {
+    "content": "Friends | Friend Anna | 2023-04-04 | We went to a pottery class.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Anna",
+      "createdOn": "2023-04-04"
+    }
+  },
+  {
+    "content": "Friends | Friend Anna | 2023-07-18 | She helped me plan a party.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Anna",
+      "createdOn": "2023-07-18"
+    }
+  },
+  {
+    "content": "Friends | Friend Anna | 2023-10-02 | She sent me a funny meme.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Anna",
+      "createdOn": "2023-10-02"
+    }
+  },
+  {
+    "content": "Family | Cousin Emily | 2023-01-09 | She graduated from college.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Emily",
+      "createdOn": "2023-01-09"
+    }
+  },
+  {
+    "content": "Family | Cousin Emily | 2023-05-22 | She started a new job.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Emily",
+      "createdOn": "2023-05-22"
+    }
+  },
+  {
+    "content": "Family | Cousin Emily | 2023-08-17 | She visited for a weekend.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Cousin Emily",
+      "createdOn": "2023-08-17"
+    }
+  },
+  {
+    "content": "Work | Work Intern Mike | 2023-03-13 | He completed his first task.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Intern Mike",
+      "createdOn": "2023-03-13"
+    }
+  },
+  {
+    "content": "Work | Work Intern Mike | 2023-06-25 | He presented his project.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Intern Mike",
+      "createdOn": "2023-06-25"
+    }
+  },
+  {
+    "content": "Work | Work Intern Mike | 2023-11-30 | He extended his internship.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Work Intern Mike",
+      "createdOn": "2023-11-30"
+    }
+  },
+  {
+    "content": "Friends | Friend Lucas | 2023-02-07 | He joined me for a movie night.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Lucas",
+      "createdOn": "2023-02-07"
+    }
+  },
+  {
+    "content": "Friends | Friend Lucas | 2023-06-14 | He bought a new bike.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Lucas",
+      "createdOn": "2023-06-14"
+    }
+  },
+  {
+    "content": "Friends | Friend Lucas | 2023-09-09 | We went a road trip.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Lucas",
+      "createdOn": "2023-09-09"
+    }
+  },
+  {
+    "content": "Family | Grandma Rose | 2023-01-16 | She taught me a new recipe.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Grandma Rose",
+      "createdOn": "2023-01-16"
+    }
+  },
+  {
+    "content": "Family | Grandma Rose | 2023-04-29 | She shared old family photos.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Grandma Rose",
+      "createdOn": "2023-04-29"
+    }
+  },
+  {
+    "content": "Family | Grandma Rose | 2023-10-11 | She celebrated her 80th birthday.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Grandma Rose",
+      "createdOn": "2023-10-11"
+    }
+  },
+  {
+    "content": "Work | Colleague David | 2023-02-21 | He fixed a software bug.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague David",
+      "createdOn": "2023-02-21"
+    }
+  },
+  {
+    "content": "Work | Colleague David | 2023-07-03 | He collaborated a new feature.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague David",
+      "createdOn": "2023-07-03"
+    }
+  },
+  {
+    "content": "Work | Colleague David | 2023-11-27 | He attended a tech conference.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Colleague David",
+      "createdOn": "2023-11-27"
+    }
+  },
+  {
+    "content": "Friends | Friend Sophie | 2023-03-19 | She adopted a puppy.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Sophie",
+      "createdOn": "2023-03-19"
+    }
+  },
+  {
+    "content": "Friends | Friend Sophie | 2023-08-08 | We went to a comedy show.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Sophie",
+      "createdOn": "2023-08-08"
+    }
+  },
+  {
+    "content": "Friends | Friend Sophie | 2023-12-12 | She started a new hobby.",
+    "metadata": {
+      "type": "Friends",
+      "Subject": "Friend Sophie",
+      "createdOn": "2023-12-12"
+    }
+  },
+  {
+    "content": "Family | Brother Sam | 2023-01-05 | He got a new gaming console.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Brother Sam",
+      "createdOn": "2023-01-05"
+    }
+  },
+  {
+    "content": "Family | Brother Sam | 2023-05-15 | He helped me with math homework.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Brother Sam",
+      "createdOn": "2023-05-15"
+    }
+  },
+  {
+    "content": "Family | Brother Sam | 2023-10-20 | He joined a soccer team.",
+    "metadata": {
+      "type": "Family",
+      "Subject": "Brother Sam",
+      "createdOn": "2023-10-20"
+    }
+  },
+  {
+    "content": "Work | Team Lead Rachel | 2023-04-11 | She launched a new project.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Team Lead Rachel",
+      "createdOn": "2023-04-11"
+    }
+  },
+  {
+    "content": "Work | Team Lead Rachel | 2023-07-23 | She reviewed our quarterly goals.",
+    "metadata": {
+      "type": "Work",
+      "Subject": "Team Lead Rachel",
+      "createdOn": "2023-07-23"
+    }
+  }
+]

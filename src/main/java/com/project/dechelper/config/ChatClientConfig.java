@@ -33,7 +33,7 @@ public class ChatClientConfig {
                 .defaultAdvisors(new SimpleLoggerAdvisor())
                 .defaultAdvisors(MessageChatMemoryAdvisor.builder(chatMemory).build())
                 .defaultSystem(chatSystemConfig.getContentAsString(StandardCharsets.UTF_8))
-                .defaultOptions(OllamaOptions.builder().numPredict(400).model(chatModel).build())
+                .defaultOptions(OllamaOptions.builder().numPredict(1000).model(chatModel).build())
                 .build();
     }
 
