@@ -1,13 +1,12 @@
 package com.project.dechelper.bootData;
 
-import jakarta.persistence.Access;
 import lombok.Builder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+
 
 @Component
 @Builder

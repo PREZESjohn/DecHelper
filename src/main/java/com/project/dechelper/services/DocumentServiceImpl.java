@@ -1,9 +1,7 @@
 package com.project.dechelper.services;
 
 import com.project.dechelper.mappers.DocumentDTOMapper;
-import com.project.dechelper.mappers.DocumentMapper;
 import com.project.dechelper.model.DocumentDTO;
-import jakarta.websocket.OnClose;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
@@ -13,12 +11,10 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
