@@ -10,7 +10,6 @@ import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
 import org.springframework.context.i18n.LocaleContextHolder;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.logging.Logger;

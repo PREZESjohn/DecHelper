@@ -1,6 +1,5 @@
 package com.project.dechelper.services;
 
-import com.project.dechelper.model.Information;
 import com.project.dechelper.model.SentenceDTO;
 import org.springframework.ai.document.Document;
 

@@ -3,10 +3,8 @@ package com.project.dechelper.toolCalling;
 import com.project.dechelper.model.DocumentDTO;
 import com.project.dechelper.services.DocumentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ai.document.Document;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
-import org.springframework.ai.vectorstore.VectorStore;
 
 import java.util.logging.Logger;
 
