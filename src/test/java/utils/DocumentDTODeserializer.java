@@ -5,27 +5,32 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.project.dechelper.model.DocumentDTO;
 import org.springframework.ai.document.Document;
 
 import java.io.IOException;
 import java.util.Map;
 
-public class DocumentDeserializer extends StdDeserializer<Document> {
-    public DocumentDeserializer() {
+public class DocumentDTODeserializer extends StdDeserializer<DocumentDTO> {
+    public DocumentDTODeserializer() {
         this(null);
     }
 
-    public DocumentDeserializer(Class<?> vc) {
+    public DocumentDTODeserializer(Class<?> vc) {
         super(vc);
     }
 
     @Override
-    public Document deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JacksonException {
+    public DocumentDTO deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JacksonException {
         JsonNode node = jp.getCodec().readTree(jp);
+        String id = node.has("id") ? node.get("id").asText() : null;
         String text = node.has("text") ? node.get("text").asText() : null;
         JsonNode metadataNode = node.has("metadata") ? node.get("metadata") : null;
 
         // Walidacja
+        if (id == null) {
+            throw new IOException("id must be specified");
+        }
         if (text == null) {
             throw new IOException("text must be specified");
         }
@@ -37,6 +42,6 @@ public class DocumentDeserializer extends StdDeserializer<Document> {
         Map<String, Object> metadata = jp.getCodec().treeToValue(metadataNode, Map.class);
 
         // Użycie konstruktora Document(String text, Map<String, Object> metadata)
-        return new Document(text, metadata);
+        return new DocumentDTO(id, text, metadata);
     }
 }
